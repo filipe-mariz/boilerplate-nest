@@ -2,6 +2,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { users } from '../app/modules/users/entities/user.entity';
 import { api_tokens } from '../app/modules/login/entities/login.entity';
+import { MongooseModule } from '@nestjs/mongoose';
 
 const models = [users, api_tokens]
 
@@ -38,3 +39,5 @@ export const sequelizeModule = SequelizeModule.forRoot({
   logging: false,
   models,
 });
+
+export const mongooseModule = MongooseModule.forRoot('mongodb://localhost:27017/test-database');
